@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "tokenizer.h"
 
 #define IN 1
@@ -6,30 +7,11 @@
 
 int main()
 {
-
-  printf( "Please enter anything you want \n" );
-  
-  while(1){
-    printf( "$ " );
-    int c, white, nw, state;
-
-    state = OUT;
-    white = nw = 0;
-    while ( ( c = getchar() ) != EOF && c != '\n')
-    {
-      char *str = c;
-      
-      /*if (space_char(c)){
-	state = OUT;
-	white++;
-      }
-      else  if(state == OUT && non_space_char(c)){
-	state = IN;
-	nw++;
-	}*/
-  
-    }
-  }
-  return 0;
+  char test[] = " Jonathan Avalos ";
+  char *ptr = test;
+  printf("%s\n", word_start(ptr));
+  printf("%s\n", word_terminator(ptr));
+  printf("%i\n", count_words(ptr));
+  printf("%s\n", copy_str(ptr, 17));
 }
 

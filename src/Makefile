@@ -1,34 +1,13 @@
-# comments begin with #
+lab1: main.o functions.o
 
-
-
-
-
-# for convenience, define variable $(OBJS) to list of object files
-
-OBJS= main.o functions.o
-
-
-
-#            this rule includes $(CFLAGS) as one of cc's parameters
-
-CFLAGS=-g -O3 # -g for debug, -O3 for optimization
-
-
-all: lab1
-
-
-
-lab1: $(OBJS)
-
-	cc -o lab1 $(CFLAGS) $(OBJS)
-
-
-$(OBJS): tokenizer.h
+	cc -o lab1 main.o functions.o
 
 clean:
-	rm -f *.o lab1
+	rm -f *.o lab1 *# *~ .#*
 
-run:lab1
-
+run:
 	./lab1
+
+functions.o: tokenizer.h functions.c
+
+main.o: tokenizer.h main.c
