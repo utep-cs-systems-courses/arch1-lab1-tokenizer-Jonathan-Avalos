@@ -1,6 +1,6 @@
 Project 1: Tokenizer
 ====================
-#Objective
+##Objective
 
 My objective for the first lab project is to build a tokenizer that maintains a history. Tokenizing is the process of dividing a string into tokens by some delimeter. My tokenizer should maintain a history. A user should be able to view and recall a certain history item by using a command similar to ’!2’. This would then use the string whatever is in position 2 as input and tokenize.
 
