@@ -10,7 +10,7 @@ The first to that I had to do was creating a UI that would echo whatever the use
 
 The second milestone of my project was to define several of the functions declared and described (but not defined) in tokenizer.h:
 
-1. int space_char(char c); // true if c is a tab or space, and not zero  Here all I did was make an if statement that returns 1 if a character is a space, ' ', or a tab, '\t', 0 otherwise.
+1. int space_char(char c); // true if c is a tab or space, and not zero <br/>Here all I did was make an if statement that returns 1 if a character is a space, ' ', or a tab, '\t', 0 otherwise.
     
 3. int non_space_char(char c); // true if c not a tab or space, and not zero  Here all I did was make an if statement that returns 1 if a character is NOT a space, ' ', and NOT a tab, '\t', 0 otherwise.
 
