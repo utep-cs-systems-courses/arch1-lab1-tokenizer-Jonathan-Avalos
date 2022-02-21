@@ -1,12 +1,18 @@
 Project 1: Tokenizer
 ====================
-# Instructions:
+#Objective
 
-You should document your tokenizer in this file.
+My objective for the first lab project is to build a tokenizer that maintains a history. Tokenizing is the process of dividing a string into tokens by some delimeter. My tokenizer should maintain a history. A user should be able to view and recall a certain history item by using a command similar to ’!2’. This would then use the string whatever is in position 2 as input and tokenize.
+====================
+#Challenges
 
-This file is written in the refreshingly simple `markdown` text
-formatting language.
+The first to that I had to do was creating a UI that would echo whatever the user wirites in the terminal. For this I used a while loop. I saved the first character of the input in a variable called 'c', then printed charcater by character until it reached the End Of File. This while loop was inside an infinite while loop so they could type as many phrases as they wanted. 
 
-To learn about text formatting using markdown, we encourage you to examine 
- - [../README.md](../README.md)
- - the online [Markdown Guide](https://www.markdownguide.org/).
+The second milestone of my project was to define several of the functions declared and described (but not defined) in tokenizer.h:
+
+1. int space_char(char c); // true if c is a tab or space, and not zero
+2. int non_space_char(char c); // true if c not a tab or space, and not zero
+3. char *word_start(char *s); // * to first (non-space) char in first word in s
+4. `char *word_terminator(char *word); // * to char after end of word
+5. int count_words(char *s); // the number of words in s
+6. char *copy_str(char *inStr, short len); // return a pointer to a (terminated) copy of inStr
