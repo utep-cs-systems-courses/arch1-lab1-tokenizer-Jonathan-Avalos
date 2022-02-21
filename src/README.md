@@ -24,3 +24,7 @@ The second milestone of my project was to define several of the functions declar
 
 6. char *copy_str(char *inStr, short len); // return a pointer to a (terminated) copy of inStr <br/>For this one I first had to allocate the memeory for the word I am going to copy, so I saved it in a new char pointer. Then in a for loop, I copy whatever is in the *inStr pointer into the new variable pointer. Then we move both pointers to the next address, until we reach the length of the string. At the end I added a '\0' to the end of the string and returned the string copy.
 
+##### Milestone 3
+
+##### Milestone 4
+
