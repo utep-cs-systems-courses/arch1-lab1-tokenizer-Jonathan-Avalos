@@ -1,6 +1,6 @@
-lab1: main.o functions.o
+lab1: main.o functions.o history.o
 
-	cc -o lab1 main.o functions.o
+	cc -o lab1 main.o functions.o history.o
 
 clean:
 	rm -f *.o lab1 *# *~ .#*
@@ -10,4 +10,6 @@ run:
 
 functions.o: tokenizer.h functions.c
 
-main.o: tokenizer.h main.c
+history.o: history.h history.c tokenizer.h
+
+main.o: tokenizer.h history.h main.c

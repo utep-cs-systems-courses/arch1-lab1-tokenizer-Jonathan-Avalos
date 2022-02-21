@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tokenizer.h"
+#include "history.h"
 
 int space_char(char c)
 {
@@ -72,14 +73,32 @@ char *copy_str(char *inStr, short len)
 
 char **tokenize(char* str)
 {
-  
+  int words = count_words(str);
+  char **array = (char**) malloc(sizeof(char) * (words + 1));
+  char *end;
+  int word_length;
+
+  for(int i = 0; i < words; i++){
+    str = word_start(str);
+    end = word_terminator(str);
+    word_length = end - str;
+    array[i] = copy_str(str, word_length);
+    str = end;
+  }
+  array[words] = '\0';
+  return array;
 }
 
 void print_tokens(char **tokens)
 {
-
+  for(; *tokens != 0; ++tokens){
+    printf("%s\n", *tokens);
+  }
 }
 
 void free_tokens(char **tokens){
-
+  for(int i = 0; tokens[i] != 0; i++){
+    free(tokens[i]);
+  }
+  free(tokens);
 }
