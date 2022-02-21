@@ -12,11 +12,13 @@ The second milestone of my project was to define several of the functions declar
 
 1. int space_char(char c); // true if c is a tab or space, and not zero <br/>Here all I did was make an if statement that returns 1 if a character is a space, ' ', or a tab, '\t', 0 otherwise.
     
-3. int non_space_char(char c); // true if c not a tab or space, and not zero <br/>Here all I did was make an if statement that returns 1 if a character is NOT a space, ' ', and NOT a tab, '\t', 0 otherwise.
+2. int non_space_char(char c); // true if c not a tab or space, and not zero <br/>Here all I did was make an if statement that returns 1 if a character is NOT a space, ' ', and NOT a tab, '\t', 0 otherwise.
 
-5. char *word_start(char *s); // * to first (non-space) char in first word in s <br/>I tackled this challenge by creating a while loop that moves the pointer of a string to the first non-sopace character of the string. Then returns the pointer at the new position.
+3. char *word_start(char *s); // * to first (non-space) char in first word in s <br/>I tackled this challenge by creating a while loop that moves the pointer of a string to the first non-sopace character of the string. Then returns the pointer at the new position.
 
-7. `char *word_terminator(char *word); // * to char after end of word
-8. int count_words(char *s); // the number of words in s
-9. char *copy_str(char *inStr, short len); // return a pointer to a (terminated) copy of inStr
+4. `char *word_terminator(char *word); // * to char after end of word <br/>This one is also a while loop but doing the opposite. Is going to move the string pointer to the first space character and then return the new end of the word.
+
+5. int count_words(char *s); // the number of words in s <br/>On this one I first started with moving the pointer to the start of the string. Then, I did a while loop, where if the end or start of a new word is not '\0' add 1 to a count variable. After getting at the end of the string we return the number of words.
+
+6. char *copy_str(char *inStr, short len); // return a pointer to a (terminated) copy of inStr <br/>For this one I first had to allocate the memeory for the word I am going to copy, so I saved it in a new char pointer. Then in a for loop, I copy whatever is in the *inStr pointer into the new variable pointer. Then we move both pointers to the next address, until we reach the length of the string. At the end I added a '\0' to the end of the string and returned the string copy.
 
