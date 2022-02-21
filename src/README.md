@@ -12,9 +12,9 @@ The second milestone of my project was to define several of the functions declar
 
 1. int space_char(char c); // true if c is a tab or space, and not zero <br/>Here all I did was make an if statement that returns 1 if a character is a space, ' ', or a tab, '\t', 0 otherwise.
     
-3. int non_space_char(char c); // true if c not a tab or space, and not zero  Here all I did was make an if statement that returns 1 if a character is NOT a space, ' ', and NOT a tab, '\t', 0 otherwise.
+3. int non_space_char(char c); // true if c not a tab or space, and not zero <br/>Here all I did was make an if statement that returns 1 if a character is NOT a space, ' ', and NOT a tab, '\t', 0 otherwise.
 
-5. char *word_start(char *s); // * to first (non-space) char in first word in s  I tackled this challenge by creating a while loop that moves the pointer of a string to the first non-sopace character of the string. Then returns the pointer at the new position.
+5. char *word_start(char *s); // * to first (non-space) char in first word in s <br/>I tackled this challenge by creating a while loop that moves the pointer of a string to the first non-sopace character of the string. Then returns the pointer at the new position.
 
 7. `char *word_terminator(char *word); // * to char after end of word
 8. int count_words(char *s); // the number of words in s
