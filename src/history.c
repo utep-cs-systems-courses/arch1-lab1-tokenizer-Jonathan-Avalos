@@ -12,6 +12,7 @@ List* init_history()
 
 void add_history(List *list, char *str)
 {
+  
   Item *item = malloc(sizeof(Item));
   int count = 0;
   
@@ -49,7 +50,7 @@ char *get_history(List *list, int id)
     id--;
   }
   if(temp == NULL){
-    printf("ID not in history");
+    printf("ID not in history\n");
   }
   else{
     return temp -> str;

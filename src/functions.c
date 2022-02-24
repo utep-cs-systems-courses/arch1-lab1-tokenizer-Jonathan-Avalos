@@ -3,6 +3,7 @@
 #include "tokenizer.h"
 #include "history.h"
 
+//ADD COMMENTS
 int space_char(char c)
 {
   if(c == '\t' || c == ' ') {
@@ -35,11 +36,11 @@ char *word_terminator(char *word)
     return end;
   }
   else{
-    while(non_space_char(*end)){ //probably needs another condition with \0
+    end = word_start(end);
+    while(non_space_char(*end) && *end != '\0'){ //probably needs another condition with \0
       end++;
     }
   }
-
   return end;
 }
 
@@ -47,11 +48,15 @@ int count_words(char *str)
 {
   str = word_start(str);
   int count = 0;
+  if(*str == '\0'){
+    return count;
+  }
+  count++;
   while(*(str = word_terminator(str)) != '\0'){
-    count++;
     if(*(str = word_start(str)) == '\0'){
       break;
     }
+    count++;
   }
   return count;
 }
@@ -74,7 +79,7 @@ char *copy_str(char *inStr, short len)
 char **tokenize(char* str)
 {
   int words = count_words(str);
-  char **array = (char**) malloc(sizeof(char) * (words + 1));
+  char **array = (char**) malloc(sizeof(char*) * (words + 1));
   char *end;
   int word_length;
 
@@ -91,14 +96,18 @@ char **tokenize(char* str)
 
 void print_tokens(char **tokens)
 {
-  for(; *tokens != 0; ++tokens){
+  int i = 0;
+  for(; *tokens != 0; tokens++){
+    printf("[%i] ", i);
     printf("%s\n", *tokens);
+    i++;
   }
 }
 
 void free_tokens(char **tokens){
-  for(int i = 0; tokens[i] != 0; i++){
-    free(tokens[i]);
+  
+  for(int i = 0; *(tokens+i); i++){
+    free(*(tokens+i));
   }
   free(tokens);
 }
