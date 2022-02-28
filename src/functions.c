@@ -3,7 +3,7 @@
 #include "tokenizer.h"
 #include "history.h"
 
-//ADD COMMENTS
+//This method checks if a character is a space char
 int space_char(char c)
 {
   if(c == '\t' || c == ' ') {
@@ -12,6 +12,7 @@ int space_char(char c)
   return 0;
 }
 
+//This method checks if a character is a not a space char
 int non_space_char(char c)
 {
   if(c != '\t' && c != ' '){
@@ -20,6 +21,7 @@ int non_space_char(char c)
   return 0;
 }
 
+//This method moves a pointer to the first non space character after a space character
 char *word_start(char *str)
 {
   char *start = str; 
@@ -29,6 +31,7 @@ char *word_start(char *str)
   return start;
 }
 
+//This method moves a pointer to the first space character after a non space character
 char *word_terminator(char *word)
 {
   char *end = word;
@@ -37,13 +40,14 @@ char *word_terminator(char *word)
   }
   else{
     end = word_start(end);
-    while(non_space_char(*end) && *end != '\0'){ //probably needs another condition with \0
+    while(non_space_char(*end) && *end != '\0'){ 
       end++;
     }
   }
   return end;
 }
 
+//This method counts the amount of words in the string provided
 int count_words(char *str)
 {
   str = word_start(str);
@@ -52,6 +56,8 @@ int count_words(char *str)
     return count;
   }
   count++;
+  //While the pointer is not '\0' then continue moving the pointer
+  //And if the terminator is not '\0' then add 1 to count
   while(*(str = word_terminator(str)) != '\0'){
     if(*(str = word_start(str)) == '\0'){
       break;
@@ -61,28 +67,39 @@ int count_words(char *str)
   return count;
 }
 
+//This method copies the string into memory
 char *copy_str(char *inStr, short len)
 {
- 
+
+  //Allocates memory for the string
   char *new_word = malloc(sizeof(char) * (len + 1));
-  
+
+  //Copies whatever is at pointer inStr into pointer new_word
   for(int i = 0; i < len; i++){
     *new_word = *inStr;
     inStr++;
     new_word++;
   }
+  //Last address has the terminator 
   *new_word = '\0';
-  new_word = new_word - len; //return it back to start of the word
+  
+  //Return it back to the start of the word
+  new_word = new_word - len;
   return new_word;
 }
 
+//This method tokenizes the string and uses all the previous methods
 char **tokenize(char* str)
 {
+  //Count the words to allocate memory
   int words = count_words(str);
+  
+  //Allocate memory, create a double array to hold pointers
   char **array = (char**) malloc(sizeof(char*) * (words + 1));
   char *end;
   int word_length;
 
+  //Copy each word from the string into the double array
   for(int i = 0; i < words; i++){
     str = word_start(str);
     end = word_terminator(str);
@@ -90,10 +107,12 @@ char **tokenize(char* str)
     array[i] = copy_str(str, word_length);
     str = end;
   }
+  //Set the last index of the array to the terminator
   array[words] = '\0';
   return array;
 }
 
+//This method prints the tokens 
 void print_tokens(char **tokens)
 {
   int i = 0;
@@ -104,6 +123,7 @@ void print_tokens(char **tokens)
   }
 }
 
+//This method frees the tokens
 void free_tokens(char **tokens){
   
   for(int i = 0; *(tokens+i); i++){
